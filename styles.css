@@ -1,0 +1,245 @@
+/* Reset default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Global styles */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f5f5f5;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Header styles */
+#header {
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+.header-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Semi-transparent background */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    /* Ensure the container stacks above the background */
+}
+
+/* Header Content styles */
+#header nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 0;
+}
+
+#header .logo {
+    font-size: 1.8rem;
+    color: #f60;
+}
+
+#header ul {
+    list-style: none;
+    display: flex;
+}
+
+#header ul li {
+    margin-left: 20px;
+}
+
+#header ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+#header ul li a:hover {
+    background-color: #f60;
+}
+
+
+/* Hero Section styles */
+#hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    /* Ensure the overlay covers the entire video */
+}
+
+.hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+#hero-video {
+    width: 100%;
+    filter: brightness(0.5);
+    /* Apply a blur effect to the video */
+}
+
+.dark-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+    /* Dark overlay with 50% opacity */
+    z-index: 1;
+}
+
+.hero-content {
+    text-align: center;
+    color: #fff;
+    z-index: 2;
+    /* Ensure the hero content appears above the dark overlay */
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.cta-btn {
+    background-color: #f60;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.cta-btn:hover {
+    background-color: #333;
+}
+
+/* Services Section styles */
+#services {
+    padding: 80px 0;
+}
+
+.services-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.service {
+    width: calc(50% - 20px);
+    /* Adjust width for two columns with some spacing */
+    margin-bottom: 40px;
+}
+
+.service img {
+    width: 100%;
+    /* Set a fixed width for the images */
+    height: 50%;
+    /* Set a fixed height for the images */
+    display: block;
+    margin: 0 auto 20px;
+    object-fit: cover;
+    /* Ensure the image covers the specified dimensions */
+}
+
+.service h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.service p {
+    font-size: 1rem;
+    color: #666;
+}
+
+
+#services h2 {
+    margin-bottom: 20px;
+}
+
+#services ul {
+    list-style: none;
+}
+
+#services ul li {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+/* About section styles */
+#about {
+    padding: 50px 0;
+    text-align: center;
+}
+
+#about h2 {
+    margin-bottom: 20px;
+}
+
+/* Work section styles */
+#work {
+    background-color: #333;
+    color: #fff;
+    padding: 50px 0;
+    text-align: center;
+}
+
+#work h2 {
+    margin-bottom: 20px;
+}
+
+/* Footer styles */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.footer-content p {
+    margin-bottom: 10px;
+}
+
+.social-links li {
+    display: inline;
+    margin-right: 10px;
+}
+
+.social-links li a {
+    color: #fff;
+    text-decoration: none;
+}
