@@ -1,0 +1,13 @@
+#about {
+    padding-top: 140px;
+    background-image: none;
+}
+
+#about::after {
+    background-color: white;
+}
+
+#about .container {
+    color: black;
+    /* Set text color to white for better contrast */
+}

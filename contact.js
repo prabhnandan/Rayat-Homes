@@ -16,10 +16,10 @@ function emailSend() {
 
     Email.send({
         Host: "smtp.elasticemail.com",
-        Username: "singhprabhnandan@gmail.com",
-        Password: "0D23615F1D9837EB4C956A04341A61DEAD0A",
-        To: 'prabhnandansingh@yahoo.com',
-        From: "singhprabhnandan@gmail.com",
+        Username: "contact@rayathomes.co.nz",
+        Password: '93C6C54EBDAD4FA6B1E22AB2680D3E0CE4BD',
+        To: 'contact@rayathomes.co.nz',
+        From: "contact@rayathomes.co.nz",
         Subject: "New enquiry from " + userName,
         Body: messageBody
     }).then(

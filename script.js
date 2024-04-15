@@ -35,3 +35,49 @@ function closeOnClickOutside(event) {
         closeNav();
     }
 }
+
+// Load header content
+fetch('header.html')
+    .then(response => response.text())
+    .then(data => {
+        document.getElementById('header-placeholder').innerHTML = data;
+        // Set currentpage class based on current page
+        const currentPage = window.location.pathname.split('/').pop().split('.')[0];
+        const links = document.querySelectorAll('.nav-links a');
+        var bFoundPage = false;
+        links.forEach(link => {
+            const linkName = link.href.split('/').pop().split('.')[0];
+            if (linkName === currentPage) {
+                link.classList.add('currentpage');
+                bFoundPage = true;
+            }
+            else {
+                link.classList.remove('currentpage');
+            }
+        });
+        if (bFoundPage == false) {
+            links.item(0).classList.add('currentpage')
+        }
+        const sidelinks = document.querySelectorAll('#sideNav a');
+        var bFoundPage = false;
+        sidelinks.forEach(link => {
+            const linkName = link.href.split('/').pop().split('.')[0];
+            if (linkName === currentPage) {
+                link.classList.add('currentpage');
+                bFoundPage = true;
+            }
+            else {
+                link.classList.remove('currentpage');
+            }
+        });
+        if (bFoundPage == false) {
+            sidelinks.item(1).classList.add('currentpage')
+        }
+    });
+
+// Load footer content
+fetch('footer.html')
+    .then(response => response.text())
+    .then(data => {
+        document.getElementById('footer-placeholder').innerHTML = data;
+    });

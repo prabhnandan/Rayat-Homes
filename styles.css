@@ -5,6 +5,37 @@
     box-sizing: border-box;
 }
 
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f5f5f5;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    /* Ensure body stretches to at least the height of the viewport */
+}
+
+/* Main content container */
+.main-content {
+    flex: 1;
+    /* Allow content to grow to fill remaining space */
+    display: flex;
+    /* Change display property to flex */
+    /* Adjust flex direction */
+}
+
+h1 {
+    color: #f60;
+}
+
+h2 {
+    color: #f60;
+    margin-bottom: 10px;
+}
+
 /* Global styles */
 body {
     font-family: Arial, sans-serif;
@@ -151,7 +182,7 @@ body {
 }
 
 .hero-content h1 {
-    font-size: 24px;
+    font-size: 4vmax;
     /* Absolute font size */
     margin-bottom: 20px;
 }
@@ -161,6 +192,12 @@ body {
     margin-bottom: 30px;
 }
 
+.hero-content a {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    line-height: 50px;
+}
+
 .cta-btn {
     background-color: #f60;
     color: #fff;
@@ -168,6 +205,8 @@ body {
     text-decoration: none;
     border-radius: 5px;
     transition: background-color 0.3s ease;
+    margin-right: 20px;
+    text-wrap: nowrap;
 }
 
 .cta-btn:hover {
@@ -234,13 +273,6 @@ body {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 1;
-}
-
-#about .container {
-    position: relative;
-    z-index: 2;
-    color: #fff;
-    /* Set text color to white for better contrast */
 }
 
 /* Additional styling for content within the About Us section */
@@ -437,6 +469,10 @@ footer {
     /* Your text color */
     display: block;
     transition: 0.3s;
+}
+
+.sidenav a.currentpage {
+    background-color: #f60;
 }
 
 .sidenav a:hover {
