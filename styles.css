@@ -10,18 +10,24 @@ body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
     background-color: #f5f5f5;
+    overflow-x: hidden;
+    /* Prevent horizontal overflow */
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
+    padding: 0 20px;
+    /* Add padding to the container for better spacing on smaller screens */
 }
 
 /* Header styles */
 #header {
-    position: fixed;
+    position: absolute;
+    top: 0;
     width: 100%;
     z-index: 1000;
+    padding: 15px;
 }
 
 .header-background {
@@ -32,13 +38,18 @@ body {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
     /* Semi-transparent background */
+    z-index: -1;
+    /* Move the background behind the header content */
 }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
+#header .container {
+    margin: 0;
+    padding: 15px;
+    /* Keep padding in pixels for header */
     position: relative;
     /* Ensure the container stacks above the background */
+    z-index: 2;
+    /* Move the container above the background */
 }
 
 /* Header Content styles */
@@ -46,21 +57,35 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 15px 0;
 }
 
-#header .logo {
-    font-size: 1.8rem;
-    color: #f60;
+#header .logos {
+    display: flex;
+}
+
+#header img {
+    /* Change display to inline-block */
+    height: 80px;
+    margin-right: 20px;
+    margin-left: 0;
+    /* Keep margin for the second logo */
+}
+
+#header img:first-child {
+    margin-left: 20px;
+    padding-left: 0;
 }
 
 #header ul {
     list-style: none;
     display: flex;
+    margin-left: auto;
 }
 
 #header ul li {
     margin-left: 20px;
+    font-size: 16px;
+    /* Absolute font size */
 }
 
 #header ul li a {
@@ -71,57 +96,63 @@ body {
     transition: background-color 0.3s ease;
 }
 
+#header ul li .currentpage {
+    background-color: #f60;
+}
+
 #header ul li a:hover {
     background-color: #f60;
 }
 
-
 /* Hero Section styles */
 #hero {
     position: relative;
+    width: 100%;
     height: 100vh;
+    /* Set the hero section to fill the viewport */
+    overflow: hidden;
+    /* Hide overflow content */
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
-    /* Ensure the overlay covers the entire video */
-}
-
-.hero-video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
 }
 
 #hero-video {
-    width: 100%;
-    filter: brightness(0.5);
-    /* Apply a blur effect to the video */
-}
-
-.dark-overlay {
+    width: auto;
+    height: auto;
+    /* Allow video to adjust width and height */
+    min-width: 100%;
+    min-height: 100%;
+    /* Ensure video fills the viewport */
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.1);
-    /* Dark overlay with 50% opacity */
-    z-index: 1;
+    /* Position the video absolutely */
+    top: 50%;
+    left: 50%;
+    /* Center the video */
+    transform: translate(-50%, -50%);
+    /* Adjust position to center the video */
+    z-index: -1;
+    /* Move the video behind other content */
+    filter: brightness(0.5);
+    /* Apply brightness to the video */
+    object-fit: cover;
+    /* Crop video to cover the entire container */
+    object-position: center;
+    /* Center the video within the container */
 }
 
 .hero-content {
-    text-align: center;
+    text-align: left;
     color: #fff;
     z-index: 2;
-    /* Ensure the hero content appears above the dark overlay */
+    width: 100%;
+    position: relative;
+    margin-left: 10vw;
 }
 
 .hero-content h1 {
-    font-size: 3rem;
+    font-size: 24px;
+    /* Absolute font size */
     margin-bottom: 20px;
 }
 
@@ -158,17 +189,20 @@ body {
     width: calc(50% - 20px);
     /* Adjust width for two columns with some spacing */
     margin-bottom: 40px;
+    background-color: #fff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
 }
 
 .service img {
     width: 100%;
-    /* Set a fixed width for the images */
-    height: 50%;
-    /* Set a fixed height for the images */
+    height: auto;
     display: block;
-    margin: 0 auto 20px;
-    object-fit: cover;
-    /* Ensure the image covers the specified dimensions */
+}
+
+.service-content {
+    padding: 20px;
 }
 
 .service h3 {
@@ -181,28 +215,42 @@ body {
     color: #666;
 }
 
-
-#services h2 {
-    margin-bottom: 20px;
-}
-
-#services ul {
-    list-style: none;
-}
-
-#services ul li {
-    display: inline-block;
-    margin: 0 10px;
-}
-
-/* About section styles */
+/* About Us Section styles */
 #about {
-    padding: 50px 0;
-    text-align: center;
+    padding: 80px 0;
+    background-image: url('photos/about_bg.webp');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
 }
 
-#about h2 {
-    margin-bottom: 20px;
+#about::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+#about .container {
+    position: relative;
+    z-index: 2;
+    color: #fff;
+    /* Set text color to white for better contrast */
+}
+
+/* Additional styling for content within the About Us section */
+#about .container {
+    position: relative;
+    /* Ensure the container stacks above the overlay */
+    z-index: 2;
+    /* Ensure the content is positioned above the overlay */
+    color: #fff;
+    /* Set text color to white for better contrast */
 }
 
 /* Work section styles */
@@ -242,4 +290,174 @@ footer {
 .social-links li a {
     color: #fff;
     text-decoration: none;
+}
+
+/* Media Queries for responsiveness */
+@media screen and (max-width: 768px) {
+    .service {
+        width: 100%;
+        margin-bottom: 40px;
+    }
+}
+
+/* Hamburger menu styles */
+.hamburger-menu {
+    display: none;
+    /* Initially hide the hamburger menu button */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    /* Align to the right */
+    transform: translateY(-50%);
+    /* Center vertically */
+    z-index: 1001;
+    /* Ensure it's above other content */
+}
+
+/* Media query to show/hide the hamburger menu button and toggle the menu */
+@media screen and (max-width: 768px) {
+    .hamburger-menu {
+        display: block;
+        /* Show the hamburger menu button on small screens */
+    }
+
+    .nav-links {
+        display: none;
+        /* Hide the navigation links by default */
+    }
+
+    .menu-open .nav-links {
+        display: flex;
+        /* Show the navigation links when menu is open */
+    }
+
+    #header .logos {
+        display: flex;
+        /* Show logos on small screens */
+    }
+
+    #header .container {
+        padding-right: 0;
+        /* Remove padding on small screens */
+    }
+
+    #header nav ul {
+        display: none;
+        /* Hide navigation links on small screens */
+    }
+}
+
+.hamburger-icon {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    display: block;
+    position: relative;
+    transition: background-color 0.3s ease;
+}
+
+.hamburger-icon::before,
+.hamburger-icon::after {
+    content: '';
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    display: block;
+    position: absolute;
+    transition: transform 0.3s ease;
+}
+
+.hamburger-icon::before {
+    top: -8px;
+}
+
+.hamburger-icon::after {
+    bottom: -8px;
+}
+
+/* Style for when the menu is open */
+.menu-open .hamburger-icon {
+    background-color: transparent;
+    display: none;
+}
+
+.menu-open .hamburger-icon::before {
+    transform: rotate(45deg);
+    top: 0;
+}
+
+.menu-open .hamburger-icon::after {
+    transform: rotate(-45deg);
+    bottom: 0;
+}
+
+/* Style for hamburger menu */
+.hamburger-menu {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    margin-right: 20px;
+    align-self: center;
+    z-index: 2;
+}
+
+.bar {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 4px 0;
+}
+
+/* Side Navigation styles */
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    right: 0;
+    background-color: rgb(0, 0, 0, 0.8);
+    /* Your background color */
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    /* Adjust as needed */
+}
+
+.sidenav a {
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 20px;
+    /* Adjust font size */
+    color: #fff;
+    /* Your text color */
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover {
+    background-color: #555;
+    /* Hover background color */
+}
+
+/* Close button styles */
+.closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+    color: #fff;
+    /* Close button color */
+}
+
+/* Media query to hide the hamburger menu on larger screens */
+@media screen and (min-width: 769px) {
+    .hamburger-menu {
+        display: none;
+    }
 }
