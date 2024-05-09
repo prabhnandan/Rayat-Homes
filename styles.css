@@ -28,11 +28,11 @@ body {
 }
 
 h1 {
-    color: #f60;
+    color: #ec4958;
 }
 
 h2 {
-    color: #f60;
+    color: #ec4958;
     margin-bottom: 10px;
 }
 
@@ -128,11 +128,11 @@ body {
 }
 
 #header ul li .currentpage {
-    background-color: #f60;
+    background-color: #ec4958;
 }
 
 #header ul li a:hover {
-    background-color: #f60;
+    background-color: #ec4958;
 }
 
 /* Hero Section styles */
@@ -199,7 +199,7 @@ body {
 }
 
 .cta-btn {
-    background-color: #f60;
+    background-color: #ec4958;
     color: #fff;
     padding: 10px 20px;
     text-decoration: none;
@@ -472,7 +472,7 @@ footer {
 }
 
 .sidenav a.currentpage {
-    background-color: #f60;
+    background-color: #ec4958;
 }
 
 .sidenav a:hover {
