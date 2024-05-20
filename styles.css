@@ -196,6 +196,7 @@ body {
     font-size: 1.2rem;
     margin-bottom: 30px;
     line-height: 50px;
+    text-wrap: nowrap;
 }
 
 .cta-btn {
@@ -351,7 +352,7 @@ footer {
 }
 
 /* Media query to show/hide the hamburger menu button and toggle the menu */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 900px) {
     .hamburger-menu {
         display: block;
         /* Show the hamburger menu button on small screens */
@@ -492,7 +493,7 @@ footer {
 }
 
 /* Media query to hide the hamburger menu on larger screens */
-@media screen and (min-width: 769px) {
+@media screen and (min-width: 901px) {
     .hamburger-menu {
         display: none;
     }
